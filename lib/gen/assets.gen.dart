@@ -64,39 +64,15 @@ class $AssetsIconsGen {
 class $AssetsImagesGen {
   const $AssetsImagesGen();
 
-  /// File path: assets/images/birds.png
-  AssetGenImage get birds => const AssetGenImage('assets/images/birds.png');
+  /// File path: assets/images/welcome.jpg
+  AssetGenImage get welcome => const AssetGenImage('assets/images/welcome.jpg');
 
-  /// File path: assets/images/business.png
-  AssetGenImage get business =>
-      const AssetGenImage('assets/images/business.png');
-
-  /// File path: assets/images/cake-shop.png
-  AssetGenImage get cakeShop =>
-      const AssetGenImage('assets/images/cake-shop.png');
-
-  /// File path: assets/images/doctors.png
-  AssetGenImage get doctors => const AssetGenImage('assets/images/doctors.png');
-
-  /// File path: assets/images/girl.jpeg
-  AssetGenImage get girl => const AssetGenImage('assets/images/girl.jpeg');
-
-  /// File path: assets/images/keys.png
-  AssetGenImage get keys => const AssetGenImage('assets/images/keys.png');
-
-  /// File path: assets/images/man.jpeg
-  AssetGenImage get man => const AssetGenImage('assets/images/man.jpeg');
-
-  /// File path: assets/images/saloon.png
-  AssetGenImage get saloon => const AssetGenImage('assets/images/saloon.png');
-
-  /// File path: assets/images/telegram.webp
-  AssetGenImage get telegram =>
-      const AssetGenImage('assets/images/telegram.webp');
+  /// File path: assets/images/welcome2.jpeg
+  AssetGenImage get welcome2 =>
+      const AssetGenImage('assets/images/welcome2.jpeg');
 
   /// List of all assets
-  List<AssetGenImage> get values =>
-      [birds, business, cakeShop, doctors, girl, keys, man, saloon, telegram];
+  List<AssetGenImage> get values => [welcome, welcome2];
 }
 
 class Assets {

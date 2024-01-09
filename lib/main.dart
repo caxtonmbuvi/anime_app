@@ -13,12 +13,28 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (context, child) {
-        return MaterialApp(
-          debugShowCheckedModeBanner: false,
-          home: BlocProvider(
-            create: (context) => ItemCubit(ItemRepository()),
-            child: const HomeScreen(),
-          ),
+        return MultiBlocProvider(
+          providers: [
+            BlocProvider<ThemeCubit>(
+              create: (context) => ThemeCubit(),
+            ),
+            BlocProvider<ItemCubit>(
+              create: (context) => ItemCubit(ItemRepository()),
+            ),
+            BlocProvider<LikeCubit>(
+              create: (context) => LikeCubit(),
+            ),
+          ],
+          child:
+              BlocBuilder<ThemeCubit, ThemeState>(builder: ((context, state) {
+            return MaterialApp(
+              debugShowCheckedModeBanner: false,
+              theme: state is ThemeDark ? ThemeData.dark() : ThemeData.light(),
+              initialRoute: Routes.home,
+              routes: appRoutes,
+              // home: const HomeScreen(),
+            );
+          })),
         );
       },
     );

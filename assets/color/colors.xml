@@ -2,7 +2,7 @@
 <resources>
     <color name="primaryColor">#191970</color>
     <color name="whiteColor">#ffffff</color>
-
+    <color name="mainColor">#2C4088</color>
 
     <color name="darkGrey">#646c8c</color>
     <color name="lightGrey">#D9D9E2</color>

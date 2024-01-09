@@ -8,7 +8,7 @@ final class ItemInitial extends ItemState {}
 final class ItemLoading extends ItemState {}
 
 final class ItemLoaded extends ItemState {
-  final List<ItemModel> data;
+  final List<ItemDetailLocalModel> data;
 
   ItemLoaded(this.data);
 }

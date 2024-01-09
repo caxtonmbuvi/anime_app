@@ -24,7 +24,7 @@ class DatabaseHelper {
 
   Future _createDB(Database db, int version) async {
     const idType = 'INTEGER PRIMARY KEY AUTOINCREMENT';
-    const textType = 'TEXT NOT NULL';
+    const textType = 'TEXT';
     
     await db.execute('''
     CREATE TABLE IF NOT EXISTS items (
@@ -39,7 +39,8 @@ class DatabaseHelper {
     CREATE TABLE IF NOT EXISTS item_detail (
       id $idType,
       itemId $textType,
-      name $textType,
+      name $textType UNIQUE,
+      gallery $textType,
       image $textType,
       race $textType,
       gender $textType,
@@ -67,7 +68,7 @@ class DatabaseHelper {
     CREATE TABLE IF NOT EXISTS item_images (
       id $idType,
       itemId $textType,
-      imageUrl $textType
+      imageUrl $textType UNIQUE
     )
     ''');
   }

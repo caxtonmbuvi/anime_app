@@ -1,33 +1,64 @@
 import '../../exports.dart';
 
 class CustomButton extends StatelessWidget {
-  final double? height1 ;
+  final double? height1;
   final double? width1;
   final String text;
   final VoidCallback? onTap;
   final Color? color;
   final Color? textColor;
-  CustomButton({Key? key, required this.text, this.onTap, this.color, this.textColor, this.height1, this.width1}) : super(key: key);
+  final bool sync;
+  CustomButton(
+      {Key? key,
+      required this.text,
+      this.onTap,
+      this.color,
+      this.textColor,
+      this.height1,
+      this.sync = false,
+      this.width1})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: height1??60.h,
-      width: width1??ScreenUtil().screenWidth,
+      height: height1 ?? 60.h,
+      width: width1 ?? ScreenUtil().screenWidth,
       child: ElevatedButton(
         onPressed: onTap,
         style: ButtonStyle(
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10.0),
+              borderRadius: BorderRadius.circular(50.r),
             ),
           ),
-          backgroundColor: MaterialStateProperty.all(color ?? ColorName.primaryColor),
+          backgroundColor:
+              MaterialStateProperty.all(color ?? ColorName.primaryColor),
           elevation: MaterialStateProperty.all(0.0),
 
           // minimumSize: MaterialStateProperty.all(const Size(200, 50)),
         ),
-        child: AppText.medium(text, color: textColor,),
+        child: sync
+            ? Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(
+                    Icons.sync,
+                    size: 30.sp,
+                  ),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  AppText.medium(
+                    text,
+                    color: textColor,
+                  ),
+                ],
+              )
+            : AppText.medium(
+                text,
+                color: textColor,
+              ),
       ),
     );
   }
